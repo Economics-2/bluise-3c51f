@@ -13,6 +13,7 @@ interface Post {
   featuredImage?: string;
   seoDescription?: string;
   seoMetaImage?: string;
+  tags?: string[];
 }
 
 interface Page {

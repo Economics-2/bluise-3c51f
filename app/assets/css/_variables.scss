@@ -1,1 +1,17 @@
-$bluise: #0b3765;
+// টেকভিউ — Brand color (fixed)
+$brand: #4f46e5;
+$brand-dark: #4338ca;
+
+// Theme-aware colors, switched via CSS custom properties (see main.scss).
+$heading: var(--heading);
+$text: var(--text);
+$text-secondary: var(--text-secondary);
+$surface: var(--surface);
+$bg: var(--bg);
+$border: var(--border);
+$code-bg: var(--code-bg);
+
+// Footer (dark in both themes)
+$footer-bg: #0f172a;
+$footer-text: #e2e8f0;
+$footer-muted: #94a3b8;

@@ -1,10 +1,10 @@
 {
-  "title": "Homev",
-  "titleTemplate": "| Bluise",
-  "welcomeText": "# Yo, I'm Bluise - A Nuxt.js & Netlify CMS boilerplate.\n\nAuthentic cred hoodie hashtag selfies. Raclette banjo cardigan cred. Kitsch XOXO lomo polaroid. Knausgaard put a bird on it four dollar toast leggings typewriter asymmetrical.\n\n\n\n\n\nHIIIIIIIIIIIIIIIIIIIIIIIIIIII",
+  "title": "টেকভিউ",
+  "titleTemplate": "| বাংলায় প্রযুক্তি",
+  "welcomeText": "# বাংলায় প্রযুক্তি শিখুন, নিজের ভাষায়।\n\nওয়েব ডেভেলপমেন্ট, প্রোগ্রামিং, কৃত্রিম বুদ্ধিমত্তা আর ডেভঅপস — সব শেখানো হয় সহজ বাংলায়। জটিল বিষয়টাকেও আমরা ভেঙে ভেঙে বুঝিয়ে দিই, যেন নতুন থেকে অভিজ্ঞ — সবার কাজে লাগে।\n\nনতুন পোস্ট পেতে ইমেইল দিয়ে সদস্য হোন।",
   "logo": "/images/uploads/logo.svg",
   "icon": "/images/uploads/logo.png",
-  "loadingColor": "#0b3765",
-  "seoDescription": "A quickstart for Nuxt & Netlify CMS",
-  "seoMetaImage": ""
+  "loadingColor": "#4f46e5",
+  "seoDescription": "টেকভিউ — বাংলায় প্রযুক্তি ব্লগ। ওয়েব ডেভেলপমেন্ট, প্রোগ্রামিং, এআই ও ডেভঅপসের টিউটোরিয়াল এবং গাইড।",
+  "seoMetaImage": "/images/uploads/og.png"
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="640" height="340" viewBox="0 0 640 340" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="340" fill="url(#g)"/>
+  <circle cx="560" cy="30" r="190" fill="#38bdf8" opacity="0.10"/>
+  <circle cx="70" cy="330" r="150" fill="#38bdf8" opacity="0.08"/>
+  <g stroke="#ffffff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M320 70 L216 210 L320 150 L424 210 Z"/>
+    <path d="M320 230 L320 292"/>
+    <path d="M258 300 L320 268 L382 300"/>
+  </g>
+  <circle cx="320" cy="120" r="16" fill="#38bdf8"/>
+  <text x="44" y="56" font-family="Arial, sans-serif" font-size="24" font-weight="bold" letter-spacing="2" fill="#7dd3fc">টেকভিউ</text>
+  <text x="44" y="306" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">অ্যাস্ট্রো: দ্রুত ওয়েব ফ্রেমওয়ার্ক</text>
+</svg>

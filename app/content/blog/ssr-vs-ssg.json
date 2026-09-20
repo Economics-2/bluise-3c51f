@@ -1,0 +1,11 @@
+{
+  "title": "SSR বনাম SSG: Next.js-এর সঠিক রেন্ডারিং কৌশল",
+  "publishedAt": "20th Jul 2026",
+  "featuredImage": "/images/uploads/posts/nextjs.svg",
+  "seoDescription": "সার্ভার-সাইড রেন্ডারিং আর স্ট্যাটিক জেনারেশনের পার্থক্য, আর কোনটা কখন ব্যবহার করবেন।",
+  "content": "Next.js-এর সবচেয়ে বড় প্রশ্নগুলোর একটি: আমি কি SSR ব্যবহার করব, নাকি SSG? উত্তরের আগে দুইটা জিনিস পরিষ্কার করা দরকার।\n\n## SSG — Static Site Generation\n\nবিল্ডের সময়ই পেজ রেডি করে রাখা হয়। ইউজার রিকোয়েস্ট করলেই তৈরি HTML পেয়ে যায়। ফলে গতি অসাধারণ, আর সার্ভার খরচও কম।\n\n```js\nexport async function getStaticProps() {\n  const data = await fetchData();\n  return { props: { data } };\n}\n```\n\n## SSR — Server-Side Rendering\n\nপ্রতিটা রিকোয়েস্টের সময় সার্ভারে পেজ তৈরি হয়। ডেটা সবসময় ফ্রেশ থাকে, কিন্তু প্রতিবার কাজ করতে হয়।\n\n```js\nexport async function getServerSideProps() {\n  const data = await fetchData();\n  return { props: { data } };\n}\n```\n\n## কোনটা কখন?\n\n- **কনটেন্ট বদলায় খুব কম** → SSG (ব্লগ, ডকুমেন্টেশন)\n- **ডেটা বারবার বদলায়, বা ইউজার-নির্দিষ্ট** → SSR (ড্যাশবোর্ড, নিউজ ফিড)\n\n## ISR — দুইয়ের মিশেল\n\nNext.js-এ আরেকটা শক্তিশালী অপশন আছে: **Incremental Static Regeneration**। নির্দিষ্ট সময় পর পর পেজ রি-জেনারেট হয়। গতিও পাবেন, ফ্রেশ ডেটাও।\n\n## বাস্তব কৌশল\n\nশুরুতে SSG ভাবুন। শুধু যেখানে সত্যিই ফ্রেশ ডেটা দরকার, সেখানে SSR। অযথা SSR চালিয়ে সার্ভারের ওপর চাপ বাড়িয়ে লাভ নেই।\n\nরেন্ডারিং কৌশলটা ঠিকঠাক বেছে নিতে পারলেই Next.js-এর আশির ভাগ খেলা জিতে গেলেন।",
+  "tags": [
+    "ওয়েব ডেভেলপমেন্ট",
+    "ফ্রন্টএন্ড"
+  ]
+}

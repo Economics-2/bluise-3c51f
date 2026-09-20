@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="640" height="340" viewBox="0 0 640 340" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7f1d1d"/>
+      <stop offset="100%" stop-color="#f43f5e"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="340" fill="url(#g)"/>
+  <circle cx="560" cy="50" r="180" fill="#ffffff" opacity="0.08"/>
+  <circle cx="70" cy="330" r="150" fill="#ffffff" opacity="0.06"/>
+  <g fill="none" stroke="#ffffff" stroke-width="16" stroke-linecap="round">
+    <circle cx="320" cy="170" r="76"/>
+    <circle cx="320" cy="170" r="30"/>
+  </g>
+  <g fill="#ffffff">
+    <path d="M320 94 L334 70 L306 70 Z"/>
+    <path d="M396 170 L420 156 L420 184 Z"/>
+  </g>
+  <g stroke="#ffffff" stroke-width="10" fill="none">
+    <path d="M212 258 L212 276 L392 276 L392 258"/>
+  </g>
+  <circle cx="212" cy="267" r="9" fill="#f43f5e" stroke="#ffffff" stroke-width="6"/>
+  <circle cx="392" cy="267" r="9" fill="#f43f5e" stroke="#ffffff" stroke-width="6"/>
+  <text x="44" y="56" font-family="Arial, sans-serif" font-size="24" font-weight="bold" letter-spacing="2" fill="#fecdd3">টেকভিউ</text>
+  <text x="44" y="306" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">ডেভঅপস ও সিআই/সিডি</text>
+</svg>

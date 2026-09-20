@@ -1,8 +1,8 @@
 {
-  "name": "Bluise",
-  "shortName": "Bluise",
-  "description": "A Nuxt.js & Netlify CMS boilerplate.",
-  "themeColor": "#0b3765",
+  "name": "টেকভিউ — বাংলায় প্রযুক্তি",
+  "shortName": "টেকভিউ",
+  "description": "বাংলায় প্রযুক্তি ব্লগ — ওয়েব ডেভেলপমেন্ট, প্রোগ্রামিং, এআই ও ডেভঅপসের টিউটোরিয়াল।",
+  "themeColor": "#4f46e5",
   "backgroundColor": "#ffffff",
-  "lang": "en"
+  "lang": "bn"
 }

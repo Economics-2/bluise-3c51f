@@ -1,12 +1,13 @@
-import { ActionContext, ActionTree, MutationTree } from 'vuex';
+import { ActionContext, ActionTree, GetterTree, MutationTree } from 'vuex';
 import { Route } from 'vue-router';
 import Vue from 'vue';
-import { getContent } from '@/utils';
+import { getContent, ContentItem } from '@/utils';
 
 export interface State {
   perPage: number;
   pages: Page[];
   posts: Post[];
+  tags: string[];
   route?: Route;
 }
 
@@ -15,6 +16,7 @@ export const appState = {
   perPage: 4,
   pages: [],
   posts: [],
+  tags: [],
 };
 
 export const mutations: MutationTree<State> = {
@@ -24,6 +26,13 @@ export const mutations: MutationTree<State> = {
   SET_POSTS: (state, payload: Record<string, unknown>): void => {
     Vue.set(state, 'posts', payload);
   },
+  SET_TAGS: (state, payload: Record<string, unknown>): void => {
+    Vue.set(state, 'tags', payload);
+  },
+};
+
+export const getters: GetterTree<State, State> = {
+  posts: (state): Post[] => state.posts || [],
 };
 
 interface Actions<S, R> extends ActionTree<S, R> {
@@ -38,6 +47,16 @@ export const actions: Actions<State, State> = {
     const context = await require.context('@/content/blog/', false, /\.json$/);
     const posts = await getContent({ context, prefix: 'blog' });
     commit('SET_POSTS', posts);
+
+    const tags = posts.reduce<string[]>((acc, post: ContentItem) => {
+      (post.tags || []).forEach((tag) => {
+        if (!acc.includes(tag)) {
+          acc.push(tag);
+        }
+      });
+      return acc;
+    }, []);
+    commit('SET_TAGS', tags);
   },
 
   async GET_PAGES_LIST({ commit }): Promise<void | Error> {

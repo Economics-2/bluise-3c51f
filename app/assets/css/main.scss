@@ -1,14 +1,67 @@
 @import 'markdown';
 
+// Theme tokens (light by default)
+:root {
+  --heading: #0f172a;
+  --text: #1e293b;
+  --text-secondary: #475569;
+  --surface: #ffffff;
+  --bg: #ffffff;
+  --border: #e2e8f0;
+  --code-bg: #eef2ff;
+  --footer-bg: #0f172a;
+  --footer-text: #e2e8f0;
+  --footer-muted: #94a3b8;
+}
+
+// Dark theme
+html.dark {
+  --heading: #f1f5f9;
+  --text: #cbd5e1;
+  --text-secondary: #94a3b8;
+  --surface: #1e293b;
+  --bg: #0f172a;
+  --border: #334155;
+  --code-bg: #1e293b;
+}
+
+html {
+  background-color: var(--bg);
+}
+
 body {
   @apply antialiased;
   @apply subpixel-antialiased;
+  background-color: var(--bg);
+  color: var(--text);
 }
 
 .main {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: var(--bg);
+}
+
+a {
+  color: inherit;
+}
+
+// Better Bengali rendering
+:lang(bn),
+.bn {
+  font-feature-settings: 'liga', 'kern';
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  word-break: normal;
+  line-height: 1.8;
+}
+
+// Max-width for long-form (markdown) reading content
+.prose-wrap {
+  max-width: 46rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .page-enter-active,

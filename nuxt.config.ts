@@ -8,6 +8,9 @@ const nuxtConfig: Configuration = {
    ** Headers of the page
    */
   head: {
+    htmlAttrs: {
+      lang: manifest.lang || 'bn',
+    },
     titleTemplate: `%s ${settings.titleTemplate}`,
     title: settings.title,
     meta: [
@@ -59,7 +62,7 @@ const nuxtConfig: Configuration = {
     subFolders: false,
 
     routes: [
-      ...fg.sync(['./app/content/blog/**.json', './app/content/pages/**.json']).map(url => ({
+      ...fg.sync(['./app/content/blog/**.json', './app/content/pages/**.json']).map((url) => ({
         route: url.replace(/^.\/app\/content(\/pages)?|.json$/gi, ''),
         payload: require(url),
       })),
@@ -75,7 +78,6 @@ const nuxtConfig: Configuration = {
    ** Nuxt.js modules
    */
   modules: ['@nuxtjs/pwa', '@nuxtjs/style-resources', '@nuxtjs/markdownit'],
-
 
   markdownit: {
     preset: 'default',

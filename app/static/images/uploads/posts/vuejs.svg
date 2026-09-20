@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="640" height="340" viewBox="0 0 640 340" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#052e16"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="340" fill="url(#g)"/>
+  <circle cx="560" cy="60" r="180" fill="#ffffff" opacity="0.08"/>
+  <circle cx="80" cy="320" r="140" fill="#ffffff" opacity="0.06"/>
+  <g fill="none" stroke="#ffffff" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M236 96 L320 220 L404 96"/>
+    <path d="M270 96 L320 172 L340 142"/>
+    <path d="M374 96 L320 172 L300 142"/>
+  </g>
+  <text x="44" y="56" font-family="Arial, sans-serif" font-size="24" font-weight="bold" letter-spacing="2" fill="#a7f3d0">টেকভিউ</text>
+  <text x="44" y="306" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">Vue 3 ও Composition API</text>
+</svg>

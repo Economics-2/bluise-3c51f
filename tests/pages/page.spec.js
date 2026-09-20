@@ -26,7 +26,7 @@ describe('Page', () => {
 
   test('renders the welcome heading from settings', () => {
     const wrapper = mount(Page, createMountOptions());
-    expect(wrapper.text()).toContain("Yo, I'm Bluise");
+    expect(wrapper.text()).toContain('বাংলায় প্রযুক্তি শিখুন, নিজের ভাষায়।');
   });
 
   test('shows the signup form initially and hides it after submit', async () => {
@@ -36,6 +36,6 @@ describe('Page', () => {
     wrapper.setData({ isSignedUp: true });
     await wrapper.vm.$nextTick();
     expect(wrapper.find('form').exists()).toBe(false);
-    expect(wrapper.text()).toContain("Thank you - we'll be in touch shortly.");
+    expect(wrapper.text()).toContain('ধন্যবাদ! নতুন পোস্টের খবর আপনার ইনবক্সে যাবে।');
   });
 });

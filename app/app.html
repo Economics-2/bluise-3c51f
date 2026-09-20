@@ -1,21 +1,27 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html {{ HTML_ATTRS }}>
   <head>
     {{ HEAD }}
   </head>
 
   <body {{ BODY_ATTRS }}>
+    <script>
+      ;(function () {
+        try {
+          var t = window.localStorage.getItem('theme');
+          if (t === 'dark') {
+            document.documentElement.classList.add('dark');
+            document.documentElement.style.colorScheme = 'dark';
+          }
+        } catch (e) {}
+      })()
+    </script>
     {{ APP }}
 
     <noscript>
-      <noframes>
-        You maybe have disabled JavaScript and Frames, please enable JavaScript or frames in You
-        browser. More info:
-        <br />
-        <a href="http://tutorial.com/how-to-enable-js">How to enable JavaScript</a>
-        <br />
-        <a href="http://tutorial.com/how-to-enable-frames">How to enable frames</a>
-      </noframes>
+      <p>
+        জাভাস্ক্রিপ্ট বন্ধ রয়েছে — এই ওয়েবসাইটটি সঠিকভাবে দেখতে জাভাস্ক্রিপ্ট চালু করুন।
+      </p>
     </noscript>
   </body>
 </html>

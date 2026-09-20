@@ -1,0 +1,11 @@
+{
+  "title": "Vue 3 ও Composition API: শুরু থেকে বোঝা",
+  "publishedAt": "28th Aug 2026",
+  "featuredImage": "/images/uploads/posts/vuejs.svg",
+  "seoDescription": "Vue 3-এর Composition API কী, কেন এলো, আর Options API-র সাথে পার্থক্য — সহজ বাংলায়।",
+  "content": "Vue 3 এলো অনেক কিছু বদলে। তার মধ্যে সবচেয়ে আলোচিত সংযোজন **Composition API**। কিন্তু অপশন API এতদিন ভালোই চলছিল — তাহলে নতুনটা কেন? চলুন বুঝি।\n\n## Options API-র সমস্যা কোথায়?\n\nঅপশন API-তে একটার পর একটা অপশন — `data`, `methods`, `computed`, `watch`। ছোট কম্পোনেন্টে এটা সুন্দর। কিন্তু কম্পোনেন্ট বড় হতে থাকলে একই ফিচারের কোড **ভিন্ন ভিন্ন জায়গায় ছড়িয়ে পড়ে**। ফলে পড়া আর রক্ষণাবেক্ষণ কঠিন হয়ে যায়।\n\n## Composition API কী দেয়?\n\nComposition API-তে `setup()` ফাংশনের ভেতরে সব লজিক এক জায়গায় গুছিয়ে লেখা যায়। সম্পর্কিত কোড পাশাপাশি থাকে।\n\n```js\nimport { ref, computed } from 'vue';\n\nexport default {\n  setup() {\n    const count = ref(0);\n    const doubled = computed(() => count.value * 2);\n\n    function increment() {\n      count.value += 1;\n    }\n\n    return { count, doubled, increment };\n  },\n};\n```\n\n## রিঅ্যাকটিভিটি: ref আর reactive\n\n- `ref()` — যেকোনো প্রিমিটিভ মানের জন্য। `.value` ব্যবহার করতে হয়\n- `reactive()` — অবজেক্টের জন্য, সরাসরি প্রপার্টি অ্যাক্সেস হয়\n\n## সবচেয়ে বড় সুবিধা: কম্পোজেবল\n\n`useCounter`, `useFetch` — এরকম ছোট ছোট ফাংশন বানিয়ে লজিক **রিইউজ** করা যায়। এটাই Composition API-র আসল শক্তি — কোড ভাগ করে নেওয়া অনেক সহজ হয়ে যায়।\n\n## আমার কি Options API ছাড়তে হবে?\n\nমোটেই না। দুইটা API-ই এখনো সমানভাবে সাপোর্টেড। কিন্তু নতুন প্রজেক্টে Composition API ব্যবহার করলে ভবিষ্যতে কাজটা সহজ হবে — কারণ Vue 3-এর ইকোসিস্টেম ক্রমশ এই দিকেই ঝুঁকছে।",
+  "tags": [
+    "ওয়েব ডেভেলপমেন্ট",
+    "ফ্রন্টএন্ড"
+  ]
+}

@@ -1,6 +1,7 @@
 /**
   * Inspired by
   * https://github.com/iandinwoodie/github-markdown-tailwindcss/blob/master/markdown.css
+  * Adapted for টেকভিউ (Bengali tech blog) with dark-mode support.
 */
 
 .py-05 {
@@ -9,7 +10,14 @@
 }
 
 .markdown {
-  @apply text-gray-900 leading-normal break-words;
+  @apply leading-normal break-words;
+  color: var(--text);
+  line-height: 1.9;
+
+  // Bengali content needs a touch more breathing room
+  &:lang(bn) {
+    line-height: 2;
+  }
 }
 
 .markdown > * + * {
@@ -26,10 +34,18 @@
 
 .markdown strong {
   @apply font-semibold;
+  color: var(--heading);
 }
 
 .markdown a {
-  @apply text-blue-600 font-semibold;
+  @apply font-semibold;
+  color: $brand;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(79, 70, 229, 0.3);
+
+  &:hover {
+    border-bottom-color: $brand;
+  }
 }
 
 .markdown strong a {
@@ -37,70 +53,142 @@
 }
 
 .markdown h1 {
-  @apply leading-tight text-5xl font-semibold mb-4 mt-6 pb-2;
+  line-height: 1.25;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  padding-bottom: 0.5rem;
+  color: var(--heading);
+  border-bottom: 2px solid var(--border);
 }
 
 .markdown h2 {
-  @apply leading-tight text-4xl font-semibold mb-4 mt-6 pb-2;
+  line-height: 1.25;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  padding-bottom: 0.5rem;
+  color: var(--heading);
+  border-bottom: 1px solid var(--border);
 }
 
 .markdown h3 {
-  @apply leading-snug text-2xl font-semibold mb-4 mt-6;
+  line-height: 1.4;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  color: var(--heading);
+}
+
+@media (min-width: 768px) {
+  .markdown h1 {
+    font-size: 3rem;
+  }
+
+  .markdown h2 {
+    font-size: 1.875rem;
+  }
+
+  .markdown h3 {
+    font-size: 1.5rem;
+  }
 }
 
 .markdown h4 {
   @apply leading-none text-lg font-semibold mb-4 mt-6;
+  color: var(--heading);
 }
 
 .markdown h5 {
   @apply leading-tight text-base font-semibold mb-4 mt-6;
+  color: var(--heading);
 }
 
 .markdown h6 {
-  @apply leading-tight text-sm font-semibold text-gray-600 mb-4 mt-6;
+  @apply leading-tight text-sm font-semibold mb-4 mt-6;
+  color: var(--text-secondary);
 }
 
 .markdown blockquote {
-  @apply text-base border-l-4 border-gray-300 pl-4 pr-4 text-gray-600;
+  @apply text-base border-l-4 pl-4 pr-4;
+  color: var(--text-secondary);
+  border-color: var(--border);
+  background: var(--code-bg);
+  border-radius: 0 0.5rem 0.5rem 0;
+  padding: 0.75rem 1rem;
 }
 
 .markdown code {
-  @apply font-mono text-sm inline bg-gray-200 rounded px-1 py-05;
+  @apply font-mono text-sm inline rounded px-1 py-05;
+  background: var(--code-bg);
+  color: #334155;
+}
+
+html.dark .markdown code {
+  color: #93c5fd;
 }
 
 .markdown pre {
-  @apply bg-gray-100 rounded p-4;
+  @apply rounded p-4;
+  background: var(--code-bg);
+  overflow-x: auto;
+  border: 1px solid var(--border);
 }
 
 .markdown pre code {
   @apply block bg-transparent p-0 overflow-visible rounded-none;
+  color: inherit;
 }
 
 .markdown ul {
-  @apply text-base pl-8 list-disc;
+  @apply text-base pl-6 list-disc;
+  color: var(--text);
 }
 
 .markdown ol {
-  @apply text-base pl-8 list-decimal;
+  @apply text-base pl-6 list-decimal;
+  color: var(--text);
 }
 
 .markdown kbd {
-  @apply text-xs inline-block rounded border px-1 py-05 align-middle font-normal font-mono shadow;
+  @apply text-xs inline-block rounded border px-1 py-05 align-middle font-normal font-mono;
+  color: var(--text-secondary);
+  border-color: var(--border);
+  background: var(--surface);
 }
 
 .markdown table {
-  @apply text-base border-gray-600;
+  @apply text-base;
+  color: var(--text);
+  border-color: var(--border);
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .markdown th {
-  @apply border py-1 px-3;
+  @apply border py-2 px-3 font-semibold text-left;
+  border-color: var(--border);
+  color: var(--heading);
+  background: var(--code-bg);
 }
 
 .markdown td {
-  @apply border py-1 px-3;
+  @apply border py-2 px-3;
+  border-color: var(--border);
+}
+
+// Inline images shouldn't overflow the reading column
+.markdown img {
+  max-width: 100%;
+  border-radius: 0.5rem;
+  margin: 1rem auto;
+  display: block;
 }
 
 /* Override pygments style background color. */
 .markdown .highlight pre {
-  @apply bg-gray-100;
+  background: var(--code-bg);
 }

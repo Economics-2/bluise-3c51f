@@ -2,7 +2,7 @@
   <nav class="border-t border-gray-200 px-4 mb-10 flex items-center justify-between sm:px-0">
     <div v-if="currentPage > 1" class="w-0 flex-1 flex">
       <nuxt-link
-        to="/blog"
+        :to="`${basePath}${currentPage - 1 === 1 ? '' : '/page/' + (currentPage - 1)}`"
         class="-mt-px border-t-2 border-transparent pt-4 pr-1 inline-flex items-center text-sm leading-5 font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-400 transition ease-in-out duration-150"
       >
         <svg class="mr-3 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
@@ -12,29 +12,30 @@
             clip-rule="evenodd"
           />
         </svg>
-        Previous
+        আগের পেজ
       </nuxt-link>
     </div>
 
     <div class="hidden md:flex">
-      <nuxt-link to="/blog" class="pagination-link">
-        1
+      <nuxt-link :to="basePath" class="pagination-link" exact>
+        ১
       </nuxt-link>
       <nuxt-link
         v-for="page in paginationMax"
         :key="page + 1"
-        :to="`/blog/page/${page + 1}`"
+        :to="`${basePath}/page/${page + 1}`"
         class="pagination-link"
       >
-        {{ page + 1 }}
+        {{ bnDigits(page + 1) }}
       </nuxt-link>
     </div>
+
     <div v-if="currentPage < totalPages" class="w-0 flex-1 flex justify-end">
       <nuxt-link
-        :to="`/blog/page/${currentPage + 1}`"
+        :to="`${basePath}/page/${currentPage + 1}`"
         class="-mt-px border-t-2 border-transparent pt-4 pl-1 inline-flex items-center text-sm leading-5 font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-400 transition ease-in-out duration-150"
       >
-        Next
+        পরের পেজ
         <svg class="ml-3 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
           <path
             fill-rule="evenodd"
@@ -50,6 +51,8 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator';
 
+const BN_DIGITS = '০১২৩৪৫৬৭৮৯';
+
 @Component({})
 export default class Pagination extends Vue {
   @Prop({ required: true, type: Number }) readonly currentPage!: number;
@@ -58,9 +61,15 @@ export default class Pagination extends Vue {
 
   @Prop({ default: 3, type: Number }) readonly max!: number;
 
+  @Prop({ default: '/blog', type: String }) readonly basePath!: string;
+
   get paginationMax(): number {
     const max = this.totalPages < this.max ? this.totalPages : this.max;
     return max - 1;
+  }
+
+  bnDigits(value: number): string {
+    return String(value).replace(/\\d/g, (d) => BN_DIGITS[parseInt(d, 10)]);
   }
 }
 </script>
