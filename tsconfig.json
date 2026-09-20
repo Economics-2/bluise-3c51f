@@ -23,6 +23,6 @@
     },
     "types": ["@types/node", "@types/jest", "@nuxt/types"]
   },
-  "include": ["./app/**/*.ts", "./app/**/*.vue"],
+  "include": ["./app/**/*.ts", "./app/**/*.vue", "./app/**/*.js"],
   "exclude": ["node_modules"]
 }

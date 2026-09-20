@@ -5,13 +5,14 @@
   "author": "Gomah",
   "private": true,
   "scripts": {
-    "dev": "nuxt-ts -o",
-    "build": "nuxt-ts build",
-    "start": " nuxt-ts start",
-    "generate": "nuxt-ts generate",
+    "postinstall": "node scripts/postinstall-patch.js",
+    "dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider nuxt-ts --hostname 0.0.0.0",
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider nuxt-ts build",
+    "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider nuxt-ts start",
+    "generate": "cross-env NODE_OPTIONS=--openssl-legacy-provider nuxt-ts generate",
     "test:lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore app/",
     "test:unit": "cross-env BABEL_ENV=test jest --coverage",
-    "test": "npm run test:lint"
+    "test": "npm run test:lint && npm run test:unit"
   },
   "config": {
     "nuxt": {
@@ -27,6 +28,7 @@
     "not dead"
   ],
   "dependencies": {
+    "@nuxt/loading-screen": "^2.0.4",
     "@nuxt/typescript-runtime": "^0.4.10",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/markdownit": "^1.2.9",
@@ -51,6 +53,7 @@
     "@typescript-eslint/eslint-plugin": "^3.5.0",
     "@typescript-eslint/parser": "^3.5.0",
     "@vue/test-utils": "^1.0.3",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
     "core-js": "2.6.9",
     "cross-env": "^7.0.2",
@@ -67,10 +70,14 @@
     "jest": "^26.1.0",
     "jest-serializer-vue": "^2.0.2",
     "jest-static-stubs": "0.0.1",
-    "node-sass": "^4.14.1",
+    "jiti": "^0.1.20",
     "prettier": "^2.0.5",
+    "sass": "^1.69.5",
     "sass-loader": "^9.0.1",
     "ts-jest": "^26.1.1",
     "vue-jest": "^3.0.6"
+  },
+  "overrides": {
+    "deasync": "0.1.31"
   }
 }

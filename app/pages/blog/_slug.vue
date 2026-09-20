@@ -12,6 +12,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
+import { Context } from '@nuxt/types';
 import { MetaInfo } from 'vue-meta';
 
 @Component({
@@ -36,7 +37,7 @@ import { MetaInfo } from 'vue-meta';
 export default class BlogPost extends Vue {
   post!: Post;
 
-  async asyncData({ params, payload }): Promise<{ post: Post }> {
+  async asyncData({ params, payload }: Context): Promise<{ post: Post }> {
     if (payload) {
       return { post: payload };
     }

@@ -15,41 +15,35 @@ So far we've got:
 - Signup form (using Netlify Forms).
 - Tools (Commitlint, Husky).
 - Typescript.
-
-Few things I'd like to add in the future:
-
-- Contact form under \_slug.
-- Dynamic sections/widgets.
-- Responsive CSS markdown.
-- Tests
+- Tests (Jest + Vue Test Utils).
 
 ## Quickstart
 
 ### Prerequisites
 
-- [Yarn](https://yarnpkg.com/lang/en/docs/install/#mac-tab)
-- [Node.js](https://nodejs.org/en/)
+- [Node.js](https://nodejs.org/en/) 17+
+- [npm](https://www.npmjs.com/) (bundled with Node)
 
 ```bash
-# ensure you have the prerequisites
-# install
-brew install node && brew install yarn
-
-# OR update
-brew update && brew upgrade && brew install yarn
-
 # install dependencies
-yarn install
+npm install
 
 # serve with hot reload at localhost:3000
-yarn dev
+npm run dev
 
 # build for production with minification
-yarn generate
+npm run generate
 
-# run all tests
-yarn test
+# run all tests (lint + unit)
+npm test
 ```
+
+> **Note on Node compatibility.** The modern Node.js runtime (v17+)
+> requires the `--openssl-legacy-provider` flag for Webpack 4 and has
+> breaking changes for the legacy `esm` loader used by Nuxt 2.13. Both are
+> handled automatically: the npm scripts pass the required flag, and a
+> `postinstall` script (`scripts/postinstall-patch.js`) patches
+> `@nuxt/config` to load `nuxt.config.ts` with `jiti` instead of `esm`.
 
 ### Using Netlify CMS
 

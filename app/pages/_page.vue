@@ -10,6 +10,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
+import { Context } from '@nuxt/types';
 import { MetaInfo } from 'vue-meta';
 
 @Component({
@@ -43,7 +44,7 @@ import { MetaInfo } from 'vue-meta';
 export default class PageTemplate extends Vue {
   page!: Page;
 
-  async asyncData({ params, payload }): Promise<{ page: Page }> {
+  async asyncData({ params, payload }: Context): Promise<{ page: Page }> {
     if (payload) {
       return { page: payload };
     }

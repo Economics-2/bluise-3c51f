@@ -34,11 +34,7 @@
         </div>
       </div>
       <div class="flex flex-col w-full xl:w-2/5">
-        <img
-          alt="Hero"
-          class="rounded shadow-xl"
-          src="https://source.unsplash.com/random/720x400"
-        />
+        <img alt="Hero" class="rounded shadow-xl" src="/images/uploads/placeholder.svg" />
       </div>
     </div>
   </section>
@@ -67,13 +63,13 @@ export default class Home extends Vue {
     email: '',
   };
 
-  encode(data): string {
+  encode(data: Record<string, string>): string {
     return Object.keys(data)
       .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
       .join('&');
   }
 
-  validEmail(email): boolean {
+  validEmail(email: string): boolean {
     // eslint-disable-next-line
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);

@@ -3,7 +3,7 @@ module.exports = {
   preset: 'ts-jest',
   moduleDirectories: ['node_modules'],
   collectCoverage: true,
-  collectCoverageFrom: ['<rootDir>/components/**/*.vue', '<rootDir>/pages/*.vue'],
+  collectCoverageFrom: ['<rootDir>/app/components/**/*.vue', '<rootDir>/app/pages/*.vue'],
   moduleNameMapper: {
     '^.+\\.(jpg|jpeg)$': 'jest-static-stubs/jpg',
     '^.+\\.(png)$': 'jest-static-stubs/png',

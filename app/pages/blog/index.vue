@@ -14,7 +14,7 @@
             <img
               :alt="post.title"
               class="w-full"
-              :src="post.featuredImage || 'https://source.unsplash.com/random/640x340'"
+              :src="post.featuredImage || '/images/uploads/placeholder.svg'"
             />
             <div class="p-6 bg-white">
               <h2 class="text-2xl mb-2">{{ post.title }}</h2>
@@ -35,6 +35,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
+import { Context } from '@nuxt/types';
 import { MetaInfo } from 'vue-meta';
 
 const Pagination = () => import('@/components/commons/pagination.vue');
@@ -64,12 +65,19 @@ export default class BlogIndex extends Vue {
 
   posts: Post[] = [];
 
-  async asyncData({ params, store }) {
+  async asyncData({
+    params,
+    store,
+  }: Context): Promise<{
+    currentPage: number;
+    totalPages: number;
+    posts: Post[];
+  }> {
     const page: number = params.page ? parseInt(params.page, 10) : 1;
     const { perPage }: { perPage: number } = store.state;
     const range = page * perPage;
 
-    const posts = store.state.posts.filter((post, index) => {
+    const posts = store.state.posts.filter((post: Post, index: number) => {
       const indexPage = index + 1;
       return range - perPage < indexPage && indexPage <= range;
     });

@@ -2,9 +2,25 @@ export function createExcerpt({ text, length = 150 }: { text: string; length?: n
   return text.split('', length).concat(['...']).join('');
 }
 
-export async function getContent({ context, prefix }): Promise<{ slug: string; title: string }[]> {
+interface ContentContext {
+  keys: () => string[];
+}
+
+interface ContentEntry {
+  title: string;
+  content: string;
+  featuredImage?: string;
+}
+
+export async function getContent({
+  context,
+  prefix,
+}: {
+  context: ContentContext;
+  prefix: string;
+}): Promise<{ slug: string; title: string; featuredImage?: string; excerpt?: string }[]> {
   const slugs: string[] = [];
-  const content: { slug: string; title: string; featuredImage: string }[] = [];
+  const content: { slug: string; title: string; featuredImage?: string; excerpt?: string }[] = [];
 
   // Get slugs
   for (let index = 0; index < context.keys().length; index += 1) {
@@ -16,7 +32,7 @@ export async function getContent({ context, prefix }): Promise<{ slug: string; t
   for (let index = 0; index < slugs.length; index += 1) {
     const slug = slugs[index];
 
-    const entry = require(`@/content/${prefix}/${slug}.json`);
+    const entry = require(`@/content/${prefix}/${slug}.json`) as ContentEntry;
 
     // Add the slug to the post object
     Object.assign(entry, { slug });
